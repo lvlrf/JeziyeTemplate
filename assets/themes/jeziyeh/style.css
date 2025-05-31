@@ -1,0 +1,543 @@
+ /*
+Theme Name: Jeziyeh Roastery Café
+Theme URI: https://www.jeziyeh.com/
+Author: Hamid Shavarean
+Version: 1.0
+License: MIT License http://hamidshavarean.mit-license.org/
+
+/* =Reset
+-------------------------------------------------------------- */
+
+@import 'css/reset.css';
+@import 'css/lity.css?12419241260BE2383';
+
+:root {
+  --first: #ebebeb;
+  --second: rgb(64,157,126);
+  --third: rgb(12,43,50);
+  --fourth: #ffffff;
+}
+
+@font-face {
+	font-family: Anjoman;
+	font-style: normal;
+	font-weight: normal;
+	src: url("fonts/Anjoman-Regular.eot");
+	src: url("fonts/Anjoman-Regular.eot") format('embedded-opentype'),  /* IE6-8 */
+		 url("fonts/Anjoman-Regular.woff2") format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url("fonts/Anjoman-Regular.woff") format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+	font-family: Anjoman;
+	font-style: normal;
+	font-weight: bold;
+	src: url("fonts/Anjoman-Bold.eot");
+	src: url("fonts/Anjoman-Bold.eot") format('embedded-opentype'),  /* IE6-8 */
+		 url("fonts/Anjoman-Bold.woff2") format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url("fonts/Anjoman-Bold.woff") format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+/* Body */
+body {
+	cursor:default;
+	background:var(--third);
+	color:var(--third);
+	margin:0;
+	padding:0;
+	font-family: Anjoman;
+	overflow-x:hidden;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-user-select:none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+}
+
+::selection {
+	color:var(--fourth);
+	background:var(--second);
+/* Safari */
+}
+
+::-moz-selection {
+	color:var(--fourth);
+	background:var(--second);
+/* Firefox */
+}
+
+b, strong {
+	font-weight:bold;
+}
+
+.container {
+	width:100%;
+	max-width:1024px;
+	margin:0 auto;
+}
+
+.wrapper {
+	position:relative;
+}
+
+
+.top-container {
+  padding: 2em .5em .5em .5em;
+  text-align: center;
+}
+
+.top-container svg {
+	max-width:12em;
+	display:block;
+	margin:0 auto;
+}
+
+.top-container .jeziyeh svg path {
+	fill:var(--second);
+}
+
+.top-container .jeziyeh .old-logo {
+	fill:var(--second);
+	transform:rotate(0deg);
+	transform-origin: center;
+	animation:badge 120s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+}
+
+@keyframes badge {
+	from {
+		transform:rotate(0deg);
+	}
+	
+	to {
+		transform:rotate(360deg);
+	}
+}
+
+
+.top-container .tagline {
+	margin-top:1rem;
+}
+
+.top-container .tagline span {
+	display:block;
+	text-align:center;
+	font-size:.9rem;
+	color:var(--fourth);
+}
+
+.top-container .tagline span:last-child {
+	font-size:.75rem;
+	margin-top:.25rem;
+}
+
+.top-container .date-time {
+	text-align:center;
+	direction:rtl;
+	padding:.5em 0 .5rem 0;
+}
+
+.top-container .date-time span {
+	color:var(--fourth);
+	font-size:.85rem;
+}
+
+.top-container .date-time span:first-child {
+	margin-left:.5rem;
+}
+
+.top-container .date-time span i {
+	color:var(--second);
+	font-size:.85em;
+	margin-left:.25em;
+}
+
+.top-container .date-time .time .dt_mmx_s {
+	display:none;
+}
+
+.footer, .customer-orientation {
+	border-top:none;
+	text-align:center;
+	color:var(--fourth);
+	padding:0 1rem;
+}
+
+.alert {
+	background-color:var(--second);
+	padding:.5rem 1rem .15rem 1rem;
+	border-radius:1rem;
+	margin:0 auto 1rem auto;
+}
+
+.alert span {
+	color:var(--fourth);
+}
+
+.alert i {
+	display:block;
+	margin:0 auto;
+	font-size:1.3rem;
+	margin:.25rem;
+	text-align:center;
+}
+
+.customer-orientation span, .alert span {
+	display:block;
+	direction:rtl;
+	text-align:center;
+	font-size:.85em;
+	line-height:1.4rem;
+	margin-bottom:.5em;
+}
+
+.customer-orientation i {
+	color:var(--second);
+	margin-left:.5rem;
+}
+
+.customer-orientation.time-notice {
+	margin:1rem 0;
+}
+
+.customer-orientation.time-notice span {
+	background:var(--second);
+	color:var(--third);
+	padding:1rem;
+	border-radius:1rem;
+	font-size:.9rem;
+}
+
+.customer-orientation.time-notice span i {
+	font-size:1.2rem;
+	margin-left:0;
+	color:var(--third);
+}
+
+.customer-orientation span:last-child {
+	margin-bottom:0;
+}
+
+.customer-orientation.phone {
+	margin:.5rem 0 .25rem 0;
+}
+
+.customer-orientation.phone a {
+	color:var(--fourth);
+	text-decoration:none;
+	font-size:.9rem;
+}
+
+.customer-orientation.phone span font {
+	margin:0 .5rem;
+	color:var(--second);
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	margin:1rem;
+}
+
+.footer a {
+	color:var(--second);
+	font-size:1em;
+	font-weight:bold;
+	display:block;
+}
+
+.footer .instagram {
+	background-color:var(--second);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: max-content;
+	font-size: .9em;
+	font-weight: bold;
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.75em;
+	cursor: pointer;
+	color: var(--third);
+	transition: all .2s ease;
+}
+
+.footer .instagram a {
+	color:var(--fourth);
+	text-decoration:none;
+}
+
+.footer .instagram:hover {
+	background-color:var(--fourth);
+}
+
+.footer .instagram i {
+	color:var(--fourth);
+	font-size:1.5rem;
+	margin-right:.5rem;
+}
+
+.footer .instagram:hover a, .footer .instagram:hover i {
+	color:var(--third);
+}
+
+.design-code {
+	border-top:0;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	font-size:.65rem;
+	text-transform:uppercase;
+	direction:ltr;
+	margin-bottom:2rem;
+	margin-top:2rem;
+	color:var(--fourth);
+}
+
+.design-code span {
+	display:block;
+}
+
+.design-code a {
+	color:var(--second);
+	text-decoration:none;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+.design-code a:hover {
+	color:var(--fourth);
+}
+
+.header-wrapper {
+  display: flex;
+  position:relative;
+  background-color:var(--fourth);
+  box-shadow: 0px 4px 8px -4px rgba(0,0,0,.1);
+  border-radius:1rem;
+  margin:0 1rem;
+}
+
+.header svg {
+	width:.75em;
+	position:absolute;
+	top:1.35em;
+	display:none;
+}
+
+.header svg.right {
+	right:.6em;
+	opacity:1;
+	animation: arrow-right 2.5s ease-in-out infinite;
+}
+
+.header svg.left {
+	left:.6em;
+	opacity:1;
+	animation: arrow-left 2.5s ease-in-out infinite;
+}
+
+@keyframes arrow-right {
+  0% {right:1.2em; opacity:0;}
+  50% {right:.6em; opacity:1;}
+  100% {right:1.2em; opacity:0;}
+}
+
+@keyframes arrow-left {
+  0% {left:1.2em; opacity:0;}
+  50% {left:.6em; opacity:1;}
+  100% {left:1.2em; opacity:0;}
+}
+
+.header .arrow {
+	fill:none;
+	stroke:var(--second);
+	stroke-width:2;
+	stroke-miterlimit:15;
+}
+
+.header ul {
+	flex-direction: row-reverse;
+	display: inline-flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	width:100%;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+	padding:1rem 0;
+}
+
+.header ul.drag {
+	cursor: grabbing;
+	cursor: -webkit-grabbing;
+}
+
+.header ul::-webkit-scrollbar {
+  display: none;
+}
+
+.header ul li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	margin:0 .25em;
+	width:auto;
+	font-size:.9em;
+	font-weight:bold;
+	border: 1px solid var(--first);
+	padding:.5rem .75rem;
+	border-radius:.75em;
+	cursor:pointer;
+	color:var(--third);
+	transition:all .2s ease;
+}
+
+.header ul li:hover, .header ul .active {
+	background:var(--second);
+	color:var(--fourth);
+	box-shadow: 0px 0px 8px 0px rgba(82,175,170, .5);
+}
+
+.header ul li:last-child:hover {
+	box-shadow:none;
+}
+
+.header ul li:first-child {
+	margin:0 1em 0 .5em;
+}
+
+.header ul li:last-child, .header ul li:last-child:hover {
+	border:0;
+	margin:0;
+	padding:0 0 0 .5em;
+	cursor:default;
+	background:none;
+}
+
+.header ul li span, .header ul li img {
+	display:block;
+}
+
+.header ul li img {
+	width:2rem;
+	height:auto;
+	margin-bottom:.3rem;
+	filter:grayscale(1) contrast(1) brightness(1.4);
+}
+
+.header ul li.active img, .header ul li:hover img {
+	filter:none;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  width: 100%;
+  max-width: 1024px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.content {
+  padding:1em;
+}
+
+.content.sticked {
+	padding-top:8em;
+}
+.tabcontent {
+  height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:opacity .75s ease-in-out;
+}
+
+.tabcontent.active {
+	height:100%;
+	opacity:1;
+	transition:opacity .5s ease-in-out;
+}
+
+.tabcontent .items {
+	display:grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap:1rem;
+	padding-bottom:1rem;
+	direction:rtl;
+}
+
+@media (max-width: 920px) {
+.tabcontent .items {
+	grid-template-columns: repeat(4, 1fr);
+}
+}
+
+@media (max-width: 768px) {
+.tabcontent .items {
+	grid-template-columns: repeat(3, 1fr);
+}
+}
+
+@media (max-width: 620px) {
+.tabcontent .items {
+	grid-template-columns: repeat(2, 1fr);
+}
+}
+
+.tabcontent .items .item {
+	border-radius:1rem;
+	background-color:var(--fourth);
+	box-shadow: 0px 4px 8px -4px rgba(0,0,0,.1);
+}
+
+.tabcontent .items .item a {
+	cursor:zoom-in;
+}
+
+.tabcontent .items .item img {
+	width:100%;
+	height:auto;
+	border-radius:1rem 1rem 0 0;
+}
+
+.tabcontent .items .item figure {
+	padding:0 1rem 1rem 1rem;
+}
+
+.tabcontent .items .item span {
+	display:block;
+	direction:rtl;
+	text-align:center;
+	color:var(--third);
+}
+
+.tabcontent .items .item span.title {
+	font-size:.9rem;
+	font-weight:bold;
+	margin:.25rem 0;
+}
+
+.tabcontent .items .item span.description {
+	font-size:.7rem;
+	margin-bottom:.5rem;
+}
+
+.tabcontent .items .item span.price {
+	font-weight:bold;
+	font-size:.9rem;
+	border-top:1px solid var(--first);
+	margin-top:.75rem;
+	padding-top:.5rem;
+}
+
+.tabcontent .items .item span.price font {
+	font-weight:normal;
+	font-size:.75rem;
+	margin-right:.15rem;
+}

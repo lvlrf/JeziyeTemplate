@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        .test-result { margin: 10px 0; padding: 10px; border-left: 4px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Website Download Test Results</h1>
+    <p>Website: <strong>https://www.jeziyeh.com</strong></p>
+    <p>Downloaded: <strong>2025-05-31 10:37:16</strong></p>
+    
+    <div class="test-result info">
+        <h3>✅ Successfully Downloaded:</h3>
+        <ul>
+            <li>1 HTML pages</li>
+            <li>116 resources (CSS, JS, images, fonts)</li>
+        </ul>
+    </div>
+    
+    <div class="test-result">
+        <h3>🔧 Improvements Made:</h3>
+        <ul>
+            <li>Downloaded external CDN resources (jQuery, Bootstrap, etc.)</li>
+            <li>Fixed relative paths for offline usage</li>
+            <li>Removed CORS-blocking attributes</li>
+            <li>Added fallback libraries for missing dependencies</li>
+            <li>Processed CSS background images</li>
+        </ul>
+    </div>
+    
+    
+    
+    <div class="test-result success">
+        <h3>🎉 All resources should now work offline!</h3>
+        <p>Open <a href="index.html">index.html</a> to view the main website.</p>
+    </div>
+    
+    <script>
+        // Test if external libraries loaded
+        setTimeout(function() {
+            if (typeof jQuery !== 'undefined') {
+                console.log('✅ jQuery loaded successfully');
+            } else {
+                console.log('⚠️ jQuery not available');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Debug Page - www.jeziyeh.com</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { color: green; }
+        .error { color: red; }
+        .warning { color: orange; }
+        .info { color: blue; }
+        img { max-width: 200px; margin: 5px; cursor: pointer; }
+        .test-gallery { display: flex; flex-wrap: wrap; gap: 10px; }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+</head>
+<body>
+    <h1>🔧 Gallery/Modal Debug Page</h1>
+    <p><strong>Website:</strong> https://www.jeziyeh.com</p>
+    <p><strong>Generated:</strong> 2025-05-31 10:37:16</p>
+    
+    <div class="debug-section">
+        <h2>📊 Download Statistics</h2>
+        <ul>
+            <li>Total Pages: <span class="info">1</span></li>
+            <li>Total Resources: <span class="info">116</span></li>
+            <li>Errors: <span class="error">0</span></li>
+        </ul>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🖼️ Image Test Gallery</h2>
+        <p>Click on images below to test modal/lightbox functionality:</p>
+        <div class="test-gallery" id="testGallery">
+            <!-- Images will be populated by JavaScript -->
+        </div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🔍 Debug Information</h2>
+        <div id="debugInfo">
+            <p class="info">Checking JavaScript libraries...</p>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            var debugInfo = $('#debugInfo');
+            var testGallery = $('#testGallery');
+            
+            // Check jQuery
+            if (typeof jQuery !== 'undefined') {
+                debugInfo.append('<p class="success">✅ jQuery loaded successfully (v' + jQuery.fn.jquery + ')</p>');
+            } else {
+                debugInfo.append('<p class="error">❌ jQuery not loaded</p>');
+            }
+            
+            // Check Fancybox
+            if (typeof $.fancybox !== 'undefined') {
+                debugInfo.append('<p class="success">✅ Fancybox loaded successfully</p>');
+            } else {
+                debugInfo.append('<p class="warning">⚠️ Fancybox not loaded - using basic modal</p>');
+            }
+            
+            // Find all images in the main website
+            var images = [];
+            $('body').find('img').each(function() {
+                var src = $(this).attr('src');
+                if (src && !src.includes('data:') && (src.includes('.jpg') || src.includes('.png') || src.includes('.jpeg') || src.includes('.gif'))) {
+                    images.push(src);
+                }
+            });
+            
+            // Populate test gallery
+            if (images.length > 0) {
+                debugInfo.append('<p class="success">✅ Found ' + images.length + ' images</p>');
+                images.slice(0, 10).forEach(function(src, index) {
+                    var img = $('<img>').attr('src', src).attr('data-fancybox', 'gallery').attr('alt', 'Test Image ' + (index + 1));
+                    testGallery.append(img);
+                });
+                
+                // Initialize Fancybox
+                if (typeof $.fancybox !== 'undefined') {
+                    $('[data-fancybox="gallery"]').fancybox({
+                        type: 'image',
+                        animationEffect: 'fade',
+                        transitionEffect: 'slide'
+                    });
+                } else {
+                    // Fallback modal
+                    testGallery.find('img').click(function() {
+                        var src = $(this).attr('src');
+                        var modal = $('<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;"><img src="' + src + '" style="max-width:90%;max-height:90%;"><div style="position:absolute;top:20px;right:20px;color:white;font-size:30px;cursor:pointer;">&times;</div></div>');
+                        $('body').append(modal);
+                        modal.click(function() { modal.remove(); });
+                    });
+                }
+            } else {
+                debugInfo.append('<p class="warning">⚠️ No images found for testing</p>');
+            }
+            
+            // Test for common modal libraries
+            var modalLibraries = ['fancybox', 'lightbox', 'magnific', 'colorbox'];
+            modalLibraries.forEach(function(lib) {
+                if (window[lib] || $[lib] || $('script[src*="' + lib + '"]').length > 0) {
+                    debugInfo.append('<p class="success">✅ ' + lib + ' detected</p>');
+                }
+            });
+            
+            debugInfo.append('<p class="info">🎯 Debug complete - Check console for any errors</p>');
+        });
+    </script>
+</body>
+</html>
